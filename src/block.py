@@ -15,8 +15,11 @@ def markdown_to_blocks(markdown):
     return clean_block_list
 
 def is_quote(lines):
+    if not lines:
+        return False
     for line in lines:
-        if line[0] != '>':
+        # assume whitespace already stripped per the lesson
+        if not line or line[0] != '>':
             return False
     return True
 
