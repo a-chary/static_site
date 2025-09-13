@@ -2,6 +2,7 @@ import os
 import re
 import sys
 
+from config import DEST
 from markdown_to_html import markdown_to_html_node
 
 def extract_title(markdown):
@@ -44,7 +45,10 @@ def generate_page(from_path, template_path, dest_path, basepath):
     template = read_file(template_path)
     page_content = markdown_to_html_node(markdown).to_html()
     page_title = extract_title(markdown)
-    page_html = template.replace("{{ Content }}", page_content).replace("{{ Title }}", page_title).replace('href="/', f'href="{basepath}').replace('src="/', f'src="{basepath}')
+    css_path = os.path.abspath(DEST)
+    dest_dir = os.path.dirname(dest_path)
+    relpath_to_css = os.path.relpath(css_path, dest_dir)
+    page_html = template.replace("{{ Content }}", page_content).replace("{{ Title }}", page_title).replace('href="/', f'href="{basepath}').replace('src="/', f'src="{basepath}').replace("{{ Path }}", relpath_to_css)
     write_file(dest_path, page_html)
 
 def generate_pages_recursively(dir_path_content, template_path, dest_dir_path, basepath):
