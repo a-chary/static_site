@@ -1,2 +1,2 @@
 SOURCE = "./static/"
-DEST = "./public/"
+DEST = "./docs/"
