@@ -11,7 +11,6 @@ def delete_files(dir):
         sys.exit(1)
             
     shutil.rmtree(dir)
-    return
 
 
 def copy_directory_files(src, dest):
@@ -31,8 +30,6 @@ def copy_directory_files(src, dest):
             shutil.copy(f_path, d_path)
         elif os.path.isdir(f_path):
             copy_directory_files(f_path, d_path)
-    
-    return
 
 
 def copy_files():
@@ -40,4 +37,3 @@ def copy_files():
     dest_path = os.path.abspath(DEST)
     delete_files(dest_path)
     copy_directory_files(src_path, dest_path)
-    return
