@@ -76,7 +76,7 @@ def ul_html(block):
 def ol_html(block):
     # split block into list of items at newlines
     list_items = block.split('\n')
-    # remove leading numbers from list
+    # remove leading number and period from list
     clean_list_items = [item[2:] for item in list_items]
     list_html_nodes = []
     for item in clean_list_items:

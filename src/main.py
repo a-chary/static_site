@@ -1,8 +1,11 @@
-from textnode import TextType, TextNode
-from htmlnode import HTMLNode
+from copy_static import copy_files
+from page_generator import generate_page
+
 
 def main():
-    new_node = TextNode("Lord of the Rings", TextType("italic"))
-    print(new_node)
+    copy_files()
+    generate_page("content/index.md", "template.html", "public/index.html")
+    return
+
 
 main()
