@@ -1,1 +1,1 @@
-python3 src/main.py "/https://github.com/a-chary/static_site/docs/"
+python3 src/main.py ""
