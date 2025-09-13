@@ -1,4 +1,4 @@
-CONTENT = "./content/"
-DEST = "./docs/"
-SOURCE = "./static/"
-TEMPLATE = "./template.html"
+CONTENT = "content/"
+DEST = "docs/"
+SOURCE = "static/"
+TEMPLATE = "template.html"
